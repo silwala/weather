@@ -4,21 +4,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/7058e1502e.js" crossorigin="anonymous"></script>
     <title>Weather</title>
 </head>
 <body>
-    <header>
-        <div class="app-name">Weather</div>
-        <input type="text" class="search">
-        <div class="switch-unit">
-            <span class="celsius">&deg;C</span> | <span class="farhenheit">&deg;F</span>
-        </div>
-    </header>
-    <main>
-        <aside></aside>
-        <section></section>
-    </main>
-    <footer></footer>
+    <div class="container">
+        <header>
+            <div class="app-name">Weather</div>
+            <div class="search-container">
+                <input type="text" class="search" placeholder="Search city">
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </div>
+            <div class="switch-unit">
+                <span class="celsius">&deg;C</span> | <span class="farhenheit">&deg;F</span>
+            </div>
+        </header>
+        <main>
+            <aside></aside>
+            <section></section>
+        </main>
+        <footer></footer>
+    </div>
     <script src="script.js"></script>
 </body>
 </html>
