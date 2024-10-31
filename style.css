@@ -51,5 +51,15 @@ header{
     color: black;
 }
 
+.switch-unit{
+    cursor: pointer;
+    user-select: none;
+}
+.selected{
+    background-color: #495057;
+    padding: 5px;
+    border-radius: 20%;
+}
+
 
 
