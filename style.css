@@ -28,7 +28,7 @@ header{
     display: flex;
     align-items: center;
 }
-.search-container .search{
+.search-container .search-query{
     background-color: #F8F9FA;
     height: 100%;
     border: none;
@@ -37,7 +37,7 @@ header{
     font-size: 1.2rem;
     flex-grow: 1;
 }
-.search-container .search:focus{
+.search-container .search-query:focus{
     outline: none;
 }
 
