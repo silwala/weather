@@ -34,7 +34,9 @@ function searchClick(){
 
 }
 
-function fetchWeather(location){
-    alert(location);
+async function fetchWeather(location){
+    let fetchWeather = await fetch(`https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${location}?key=${APIKey}`);
+    let weatherData = await fetchWeather.json();
+    console.log(weatherData)
 }
 
