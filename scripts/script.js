@@ -1,13 +1,45 @@
 class Weather {
+    #data;
+    #tempUnit;
+    #currentConditions;
+    #today;
+    #nextFortnight;
     
     constructor(data, tempUnit){
-        this.data = data;
-        this.tempUnit = tempUnit;
+        this.#data = data;
+        this.#tempUnit = tempUnit;
+        this.#currentConditions = this.#data.currentConditions;
+        this.#today = this.#data.days[0];
+        this.#nextFortnight = this.#data.days.slice(1);
     }
-
+    
+    
     printWeather(){
         console.log("weahter: ")
-        console.log(this.data);
+        console.log(this.#data);
+        console.log(this.#currentConditions)
+        console.log(this.#today);
+        console.log(this.#nextFortnight);
+    }
+
+    get currentConditions(){
+        return this.#currentConditions;
+    }
+
+    get today(){
+        return this.#today;
+    }
+
+    get nextFortnight(){
+        return this.#nextFortnight;
+    }
+
+    tempInFahren(temp){
+        return temp
+    }
+
+    tempInCelsius(temp){
+        temp = ((temp - 32) * 5) / 9
     }
     
 }
