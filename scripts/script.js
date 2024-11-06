@@ -39,6 +39,20 @@ function weatherApp(){
         }
         
     }
+
+    async function getUserLocation(){
+        try {
+            const  response = await fetch("https://get.geojs.io/v1/ip/geo.json");
+            if (!response.ok) {
+                throw new Error("Failed to fetch weather data: " + response.statusText);
+            }
+            const location = await response.json();
+            fetchWeather(location.city);
+        } catch(error) {
+            console.log("Can't get user location: " + error)
+        }
+    }
+
     async function fetchWeather(location){
         try {
             const response = await fetch(`https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${location}?key=${APIKey}`);
@@ -50,9 +64,11 @@ function weatherApp(){
             weather = new Weather(weatherData)
             weather.printWeather();
         } catch(error) {
-            console.error("Error fetching weather: ", error);
+            console.log(error);
         }
     }
+
+    getUserLocation();
 }
 
 weatherApp();
