@@ -58,13 +58,17 @@ function weatherApp(){
             const response = await fetch(`https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${location}?key=${APIKey}`);
             
             if (!response.ok) {
-                throw new Error("Failed to fetch weather data: " + response.statusText);
+                throw new Error(`HTTP error: ${response.status} - ${response.statusText}`);
             }
             const weatherData = await response.json();
             weather = new Weather(weatherData)
             weather.printWeather();
         } catch(error) {
-            console.log(error);
+            console.error("Error fetching weather data: ", error.message);
+
+            const errorMessage = encodeURIComponent(error.message);
+            window.location.href = `/error.html?message=${errorMessage}`;
+
         }
     }
 
