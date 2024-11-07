@@ -44,7 +44,7 @@ function weatherApp(){
         try {
             const  response = await fetch("https://get.geojs.io/v1/ip/geo.json");
             if (!response.ok) {
-                throw new Error("Failed to fetch weather data: " + response.statusText);
+                throw new Error("Error code: " + response.status);
             }
             const location = await response.json();
             fetchWeather(location.city);
@@ -58,13 +58,13 @@ function weatherApp(){
             const response = await fetch(`https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${location}?key=${APIKey}`);
             
             if (!response.ok) {
-                throw new Error(`HTTP error: ${response.status} - ${response.statusText}`);
+                throw new Error(response.status);
             }
             const weatherData = await response.json();
             weather = new Weather(weatherData)
             weather.printWeather();
         } catch(error) {
-            console.error("Error fetching weather data: ", error.message);
+            console.log("Error fetching weather data: ", error.message);
 
             const errorMessage = encodeURIComponent(error.message);
             window.location.href = `/error.html?message=${errorMessage}`;
