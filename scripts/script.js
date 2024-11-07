@@ -67,7 +67,7 @@ function weatherApp(){
             console.log("Error fetching weather data: ", error.message);
 
             const errorMessage = encodeURIComponent(error.message);
-            window.location.href = `/error.html?message=${errorMessage}`;
+            window.location.href = `./error.html?message=${errorMessage}`;
 
         }
     }
