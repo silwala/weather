@@ -1,6 +1,8 @@
 function updateDisplay(){
     const code = document.querySelector(".error-code");
     const description = document.querySelector(".error-description");
+    const goIndex = document.querySelector(".go-index");
+    goIndex.addEventListener("click", goToIndex);
     const params = new URLSearchParams(window.location.search);
     const errorMessage = params.get("message");
     code.textContent = isCodeNumber(errorMessage) ? errorMessage : "Oops!";
@@ -19,6 +21,10 @@ function updateDisplay(){
 
 function isCodeNumber(code) {
     return !isNaN(code) && code.trim() !== "";
+}
+
+function goToIndex(){
+    window.location.href = "./index.html";
 }
 
 updateDisplay();
