@@ -6,10 +6,17 @@ body{
 
 header{
     display: flex;
-    justify-content: space-around;
+    flex-direction: column;
+    gap: 5px;
     background-color: #212529;
     color: #F8F9FA;
     padding: 20px 0;
+}
+
+.app-name-switch-container{
+    display: flex;
+    justify-content: space-between;
+    padding: 0 50px;
 }
 
 .app-name{
@@ -20,7 +27,9 @@ header{
 }
 
 .search-container{
+    align-self: center;
     width: 320px;
+    height: 2.5rem;
     border-radius: 15px;
     border: none;
     background-color: #F8F9FA;
