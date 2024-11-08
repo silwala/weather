@@ -90,22 +90,22 @@ main{
 .current-condition .city{
     font-size: 2rem;
 }
-.current-condition .country{
-    font-size: 1.2rem;
+.current-condition .condition{
+    font-size: 1.1rem;
 }
 
 .weather-condition{
     display: flex;
     justify-content: center;
+    align-items: center;
     gap: 10px;
 }
-.weather-condition .temperature{
-    font-size: 3rem;
-    /* align-self: flex-end; */
+.weather-condition .current-temperature{
+    font-size: 2rem;
 }
 
 .weather-condition .weather-icon{
-    width: 50px;
+    width: 80px;
 }
 
 

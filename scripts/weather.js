@@ -11,7 +11,6 @@ export class Weather {
         this.#nextFortnight = this.#data.days.slice(1);
     }
     
-    
     printWeather(){
         console.log("weahter: ")
         console.log(this.#data);
@@ -22,6 +21,10 @@ export class Weather {
 
     get currentConditions(){
         return this.#currentConditions;
+    }
+
+    get city(){
+        return this.#data.resolvedAddress.split(", ")[0];
     }
 
     get today(){
