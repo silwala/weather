@@ -7,6 +7,7 @@ function updateDisplay(){
     const errorMessage = params.get("message");
     code.textContent = isCodeNumber(errorMessage) ? errorMessage : "Oops!";
     
+    console.log(errorMessage)
     if(errorMessage === "400"){
         description.textContent = "Couldn't find a result for your search"
     }

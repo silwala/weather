@@ -70,5 +70,42 @@ header{
     border-radius: 20%;
 }
 
+main{
+    display: flex;
+    justify-content: center;
+}
+
+.current-condition{
+    display: flex;
+    margin: 20px;
+    width: min(90vw, 800px);
+    padding: 40px;
+    justify-content: space-between;
+    border-radius: 15px;
+    box-shadow: 5px 5px 15px #00000031;
+    color: #343A40;
+
+}
+
+.current-condition .city{
+    font-size: 2rem;
+}
+.current-condition .country{
+    font-size: 1.2rem;
+}
+
+.weather-condition{
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+.weather-condition .temperature{
+    font-size: 3rem;
+    /* align-self: flex-end; */
+}
+
+.weather-condition .weather-icon{
+    width: 50px;
+}
 
 
