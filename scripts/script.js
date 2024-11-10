@@ -34,8 +34,8 @@ function weatherApp(){
             fahrenheit.classList.remove("selected");
             tempUnit = "C";
         }
-        console.log(getTemperature(weather.currentConditions.temp) + `°${tempUnit}`);
-        currentTempDiv.textContent = getTemperature(weather.currentConditions.temp) + `°${tempUnit}`;
+        console.log(getTemperature(weather.currentConditions.temp) + "°");
+        currentTempDiv.textContent = getTemperature(weather.currentConditions.temp) + "°";
     }
     
     function searchClick(){
@@ -52,7 +52,7 @@ function weatherApp(){
         const currentCondition = weather.currentConditions;
         city.textContent = weather.city;
         condition.textContent = currentCondition.conditions;
-        currentTempDiv.textContent = getTemperature(currentCondition.temp) + `°${tempUnit}`;
+        currentTempDiv.textContent = getTemperature(currentCondition.temp) + "°";
         weatherIcon.src = `./images/weather-icons/${currentCondition.icon}.svg`;
     }
 

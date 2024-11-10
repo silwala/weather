@@ -72,42 +72,51 @@ header{
 
 main{
     display: flex;
-    justify-content: center;
 }
 
 .current-condition{
     display: flex;
+    flex-direction: column;
     margin: 20px;
-    width: min(90vw, 800px);
-    height: 80px;
-    padding: 40px;
-    justify-content: space-between;
-    align-items: center;
+    /* width: min(90vw, 800px); */
+    /* padding: 40px; */
+    height: 300px;
+    width: 300px;
     border-radius: 15px;
     box-shadow: 5px 5px 15px #00000031;
     color: #343A40;
+    padding: 10px;
 
 }
 
-.current-condition .city{
-    font-size: 2rem;
-}
-.current-condition .condition{
-    font-size: 1.1rem;
-    padding-left: 5px;
-}
-
-.weather-condition{
+.additional-info{
     display: flex;
-    justify-content: center;
-    gap: 10px;
-}
-.weather-condition .current-temperature{
-    font-size: 2rem;
+    justify-content: space-between;
 }
 
-.weather-condition .weather-icon{
+.additional-info .city{
+    font-size: 1.3rem;
+}
+.additional-info .condition{
+    font-size: 1.1rem;
+}
+
+.additional-info .weather-icon{
     width: 80px;
 }
+.weather-condition{
+    display: flex;
+    padding-top: 10px;
+    /* align-items: flex-end; */
+    justify-content: space-between;
+}
+.weather-condition .current-temperature{
+    font-size: 4rem;
+}
+
+.weather-condition .feels-like{
+    font-size: 1.2rem;
+}
+
 
 
