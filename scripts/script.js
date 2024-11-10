@@ -53,7 +53,7 @@ function weatherApp(){
         city.textContent = weather.city;
         condition.textContent = currentCondition.conditions;
         currentTempDiv.textContent = getTemperature(currentCondition.temp) + `°${tempUnit}`;
-        weatherIcon.src = `./../images/weather-icons/${currentCondition.icon}.svg`;
+        weatherIcon.src = `./images/weather-icons/${currentCondition.icon}.svg`;
     }
 
     function getTemperature(temp){
