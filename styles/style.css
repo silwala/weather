@@ -1,14 +1,84 @@
+:root {
+    /* Clear Day */
+    --clear-day-gradient: linear-gradient(to top, #87CEEB, #FFD700);
+  
+    /* Clear Night */
+    --clear-night-gradient: linear-gradient(to top, #1E3A5F, #4F8AC3);
+  
+    /* Cloudy */
+    --cloudy-gradient: linear-gradient(to top, #B0C4DE, #A9A9A9);
+  
+    /* Fog */
+    --fog-color: #D3D3D3;
+  
+    /* Hail */
+    --hail-color: #B0C4DE;
+  
+    /* Partly Cloudy Day */
+    --partly-cloudy-day-gradient: linear-gradient(to top, #A9A9A9, #87CEEB);
+  
+    /* Partly Cloudy Night */
+    --partly-cloudy-night-gradient: linear-gradient(to top, #4F8AC3, #2F4F4F);
+  
+    /* Rain Snow Showers Day */
+    --rain-snow-showers-day-gradient: linear-gradient(to top, #00BFFF, #FFFFFF);
+  
+    /* Rain Snow Showers Night */
+    --rain-snow-showers-night-gradient: linear-gradient(to top, #1E3A5F, #A9A9A9);
+  
+    /* Rain Snow */
+    --rain-snow-gradient: linear-gradient(to top, #A9A9A9, #00BFFF);
+  
+    /* Rain */
+    --rain-gradient: linear-gradient(to top, #4682B4, #A9A9A9);
+  
+    /* Showers Day */
+    --showers-day-gradient: linear-gradient(to top, #FFD700, #A9A9A9);
+  
+    /* Showers Night */
+    --showers-night-gradient: linear-gradient(to top, #2F4F4F, #A9A9A9);
+  
+    /* Sleet */
+    --sleet-color: #708090;
+  
+    /* Snow Showers Day */
+    --snow-showers-day-gradient: linear-gradient(to top, #ADD8E6, #FFFFFF);
+  
+    /* Snow Showers Night */
+    --snow-showers-night-gradient: linear-gradient(to top, #A9A9A9, #D3D3D3);
+  
+    /* Snow */
+    --snow-color: #FFFFFF;
+  
+    /* Thunder Rain */
+    --thunder-rain-gradient: linear-gradient(to top, #4B0082, #4682B4);
+  
+    /* Thunder Showers Day */
+    --thunder-showers-day-gradient: linear-gradient(to top, #FFD700, #4B0082);
+  
+    /* Thunder Showers Night */
+    --thunder-showers-night-gradient: linear-gradient(to top, #2F4F4F, #4B0082);
+  
+    /* Thunder */
+    --thunder-gradient: linear-gradient(to top, #4B0082, #2F4F4F);
+  
+  }
+
 body{
     margin: 0;
     padding: 0;
     font-family: Arial, Helvetica, sans-serif;
+    background-image: url("./../images/condition-background/partial-cloud-night.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
 }
 
 header{
     display: flex;
     flex-direction: column;
     gap: 5px;
-    background-color: #212529;
+    background-color: #2125298f;
     color: #F8F9FA;
     padding: 20px 0;
 }
@@ -83,9 +153,10 @@ main{
     height: 300px;
     width: 300px;
     border-radius: 15px;
-    box-shadow: 5px 5px 15px #00000031;
-    color: #343A40;
+    box-shadow: 5px 5px 15px hwb(0 0% 100% / 0.753);
+    color: #F8F9FA;
     padding: 10px;
+    background-color: #000000bf;
 
 }
 
@@ -102,19 +173,18 @@ main{
 }
 
 .additional-info .weather-icon{
-    width: 80px;
+    width: 100px;
 }
 .weather-condition{
     display: flex;
-    padding-top: 10px;
-    /* align-items: flex-end; */
-    justify-content: space-between;
+    flex-direction: column;
+    gap: 20px;
 }
 .weather-condition .current-temperature{
-    font-size: 4rem;
+    font-size: 8rem;
 }
 
-.weather-condition .feels-like{
+.add-stats{
     font-size: 1.2rem;
 }
 
