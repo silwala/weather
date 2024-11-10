@@ -54,6 +54,7 @@ function weatherApp(){
         condition.textContent = currentCondition.conditions;
         currentTempDiv.textContent = getTemperature(currentCondition.temp) + "°";
         weatherIcon.src = `./images/weather-icons/${currentCondition.icon}.svg`;
+        document.body.style.backgroundImage = `url("./images/condition-background/${currentCondition.icon}.jpg")`
     }
 
     function getTemperature(temp){

@@ -150,7 +150,7 @@ main{
     margin: 20px;
     /* width: min(90vw, 800px); */
     /* padding: 40px; */
-    height: 300px;
+    height: 320px;
     width: 300px;
     border-radius: 15px;
     box-shadow: 5px 5px 15px hwb(0 0% 100% / 0.753);
@@ -173,7 +173,7 @@ main{
 }
 
 .additional-info .weather-icon{
-    width: 100px;
+    width: 80px;
 }
 .weather-condition{
     display: flex;
