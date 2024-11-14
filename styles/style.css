@@ -2,7 +2,6 @@ body{
     margin: 0;
     padding: 0;
     font-family: Arial, Helvetica, sans-serif;
-    background-image: url("./../images/condition-background/partial-cloud-night.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
@@ -84,8 +83,8 @@ main{
     margin: 20px;
     /* width: min(90vw, 800px); */
     /* padding: 40px; */
-    height: 320px;
-    width: 300px;
+    height: 200px;
+    width: 250px;
     border-radius: 15px;
     box-shadow: 5px 5px 15px hwb(0 0% 100% / 0.753);
     color: #F8F9FA;
@@ -112,10 +111,10 @@ main{
 .weather-condition{
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 10px;
 }
 .weather-condition .current-temperature{
-    font-size: 8rem;
+    font-size: 4rem;
 }
 
 .add-stats{
