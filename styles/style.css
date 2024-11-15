@@ -238,7 +238,14 @@ main {
     backdrop-filter: var(--container-backdrop);
 }
 
+.weather-containers{
+    display: flex;
+    border: 1px solid black;
+    width: 100%;
+}
+
 .current-condition {
+    flex: 1;
     display: flex;
     flex-direction: column;
     margin: var(--padding-large);
