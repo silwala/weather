@@ -145,14 +145,16 @@ main{
     --font-size-small: 1.1rem;
     
     --padding-large: 20px;
-    --padding-medium: 10px;
+    --padding-medium: 15px;
     --padding-small: 5px;
 
     --border-radius-large: 15px;
     --border-radius-small: 5px;
     
     --gap-small: 5px;
-    --gap-large: 10px
+    --gap-large: 10px;
+
+    --flex: 1 0 270px;
 }
 
 body {
@@ -240,16 +242,16 @@ main {
 
 .weather-containers{
     display: flex;
+    flex-wrap: wrap;
     border: 1px solid black;
     width: 100%;
 }
 
-.current-condition {
-    flex: 1;
+.weather-part-containers {
+    flex: var(--flex);
     display: flex;
     flex-direction: column;
     margin: var(--padding-large);
-    width: 250px;
     border-radius: var(--border-radius-large);
     box-shadow: var(--box-shadow);
     color: var(--text-color);
@@ -278,7 +280,6 @@ main {
 .weather-condition {
     display: flex;
     flex-direction: column;
-    gap: var(--gap-large);
 }
 
 .weather-condition .current-temperature {
@@ -289,6 +290,12 @@ main {
     font-size: var(--font-size-small);
 }
 
-@media screen and (max-width: 500px) {
-    /* Add responsive styles here if needed */
+.current-more-stats{
+    gap: var(--gap-large);
+    font-size: var(--font-size-medium);
+}
+
+.cms-tv{
+    display: flex;
+    justify-content: space-around;
 }

@@ -11,7 +11,6 @@ function weatherApp(){
     const currentTempDiv = document.querySelector(".current-temperature")
     const weatherIcon = document.querySelector(".weather-icon-img")
     const feelsLike = document.querySelector(".feels-like");
-    const precipChance = document.querySelector(".precip-chance");
     let tempUnit = "C";
     let weatherAddress = "";
     let weather;
@@ -64,22 +63,7 @@ function weatherApp(){
         currentTempDiv.textContent = getTemperature(currentCondition.temp) + "°";
         weatherIcon.src = `./images/weather-icons/${currentCondition.icon}.svg`;
         feelsLike.textContent = `feels like ${getTemperature(currentCondition.feelslike)}`;
-        precipChance.textContent = fillprecip(getCurrentHour());
         document.body.style.backgroundImage = `url("./images/condition-background/${currentCondition.icon}.jpg")`
-    }
-
-    function fillprecip(time){
-        const precipProb = weather.today.hours[time + 1].precipprob;
-        const precipType = weather.today.hours[time + 1].preciptype;
-        if(precipType === null){
-            return "0% chance of precipitation"
-        }
-        else if(precipType.length === 1){
-            return `${precipProb}% chance of ${precipType}`
-        }
-        else {
-            return `${precipProb}% chance of precipitation`
-        }
     }
 
     function getTemperature(temp){
