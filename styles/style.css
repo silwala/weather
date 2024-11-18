@@ -292,6 +292,7 @@ main {
 
 .current-more-stats{
     gap: var(--gap-large);
+    justify-content: center;
     font-size: var(--font-size-medium);
 }
 
