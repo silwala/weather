@@ -96,8 +96,26 @@ function weatherApp(){
             let temperature = document.createElement("div");
             temperature.classList.add("hourly-temperature");
             temperature.textContent = `${getTemperature(today.hours[time].temp)}°`
+
+            let precip = document.createElement("div");
+            precip.classList.add("precipitation")
+            let precipImage = document.createElement("img");
+            precipImage.classList.add("precip-image");
+            if(today.hours[time].preciptype === null){
+                precipImage.src = "./images/weather-icons/raindrop.png"
+            }
+            else if(today.hours[time].preciptype.length === 1 && today.hours[time].preciptype[0] === "snow"){
+                precipImage.src = `./images/weather-icons/snowflake.png`
+            }
+            else{
+                precipImage.src = "./images/weather-icons/raindrop.png"
+            }
+            let precipChance = document.createElement("div");
+            precipChance.classList.add("precip-chance");
+            precipChance.textContent = `${today.hours[time].precipprob}%`
+            precip.append(precipImage, precipChance);
             todayByHours.append(hourDiv);
-            hourDiv.append(timeDiv, conditionImage,temperature);
+            hourDiv.append(timeDiv, conditionImage,temperature, precip);
            time++;
            if(time === 24){
             today = weather.nextFortnight[0];
