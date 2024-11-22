@@ -11,6 +11,10 @@ function weatherApp(){
     const currentTempDiv = document.querySelector(".current-temperature")
     const weatherIcon = document.querySelector(".weather-icon-img")
     const feelsLike = document.querySelector(".feels-like");
+    const visibility = document.querySelector(".visibility-value");
+    const wind = document.querySelector(".wind-value");
+    const sunRiseSet = document.querySelector(".sun-value");
+
     let tempUnit = "C";
     let weatherAddress = "";
     let weather;
@@ -56,14 +60,20 @@ function weatherApp(){
     }
 
     function displayCurrentCondition(){
-        getCurrentHour();
         const currentCondition = weather.currentConditions;
         city.textContent = weather.city;
         condition.textContent = currentCondition.conditions;
         currentTempDiv.textContent = getTemperature(currentCondition.temp) + "°";
         weatherIcon.src = `./images/weather-icons/${currentCondition.icon}.svg`;
         feelsLike.textContent = `feels like ${getTemperature(currentCondition.feelslike)}`;
+        visibility.textContent = `${currentCondition.visibility} miles`;
+        wind.textContent = `${currentCondition.windspeed} mph`;
+        sunRiseSet.textContent = `${getHourMin(currentCondition.sunrise)} / ${getHourMin(currentCondition.sunset)}`;
         document.body.style.backgroundImage = `url("./images/condition-background/${currentCondition.icon}.jpg")`
+    }
+
+    function getHourMin(timeWithHourMinSec){
+        return timeWithHourMinSec.substring(0, timeWithHourMinSec.lastIndexOf(":"));
     }
 
     function getTemperature(temp){
