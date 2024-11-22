@@ -53,10 +53,8 @@ function weatherApp(){
         
     }
 
-    function getCurrentHour(){
-        const now = new Date();
-        console.log(now.getHours());
-        return now.getHours();
+    function getCurrentHour(time){
+        return Number(time.split(":")[0]);
     }
 
     function displayCurrentCondition(){
@@ -74,19 +72,26 @@ function weatherApp(){
 
     function displayTwentyFourHour(){
         const todayByHours = document.querySelector(".today-by-hours")
-        const today = weather.today;
+        todayByHours.textContent = ""
+        let today = weather.today;
         let numberOfHoursToDisplay = 24;
-        let time = getCurrentHour();
+        let time = getCurrentHour(weather.currentConditions.datetime);
         for(let i = 0; i < numberOfHoursToDisplay; i++){
-           let hourDiv = document.createElement("div");
-           hourDiv.classList.add("hourly-condition");
-           let conditionImage = document.createElement("img");
-           conditionImage.classList.add("hourly-condition-image");
-           conditionImage.src = `./images/weather-icons/${today.hours[time].icon}.svg`;
-           conditionImage.alt =`icon for ${today.hours[time].conditions}`;
-           todayByHours.append(hourDiv);
-           hourDiv.append(conditionImage);
-           console.log(i);
+            console.log(time)
+            console.log(today.hours[time].datetime);
+            let timeToDisplay = getHourMin(today.hours[time].datetime);
+            let hourDiv = document.createElement("div");
+            hourDiv.classList.add("hourly-condition");
+            let timeDiv = document.createElement("div");
+            timeDiv.classList.add("time-div");
+            console.log(timeToDisplay);
+            timeDiv.textContent = timeToDisplay;
+            let conditionImage = document.createElement("img");
+            conditionImage.classList.add("hourly-condition-image");
+            conditionImage.src = `./images/weather-icons/${today.hours[time].icon}.svg`;
+            conditionImage.alt =`icon for ${today.hours[time].conditions}`;
+            todayByHours.append(hourDiv);
+            hourDiv.append(timeDiv, conditionImage);
            time++;
            if(time === 24){
             today = weather.nextFortnight[0];

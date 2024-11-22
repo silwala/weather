@@ -1,5 +1,6 @@
  :root {
     --weather-icon-size: 50px;
+    --weather-icon-size-small: 25px;
     --container-backdrop: blur(10px);
     --primary-color: #212529;
     --secondary-color: #F8F9FA;
@@ -23,7 +24,8 @@
     --border-radius-small: 5px;
     
     --gap-small: 5px;
-    --gap-large: 10px;
+    --gap-medium: 10px;
+    --gap-large: 20px;
 
     --flex: 1 0 250px;
 }
@@ -163,7 +165,7 @@ main {
 }
 
 .current-more-stats{
-    gap: var(--gap-large);
+    gap: var(--gap-medium);
     justify-content: center;
     font-size: var(--font-size-medium);
 }
@@ -181,7 +183,15 @@ main {
     overflow-x: scroll;
 }
 
+.hourly-condition{
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap-small);
+}
+
 .today-by-hours .hourly-condition-image{
+    /* border: 1px solid black; */
     height: var(--weather-icon-size);
     width: var(--weather-icon-size);
 }
+
