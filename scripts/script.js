@@ -76,22 +76,28 @@ function weatherApp(){
         let today = weather.today;
         let numberOfHoursToDisplay = 24;
         let time = getCurrentHour(weather.currentConditions.datetime);
+
+        let description = document.querySelector(".description");
+        description.textContent = today.description;
         for(let i = 0; i < numberOfHoursToDisplay; i++){
-            console.log(time)
-            console.log(today.hours[time].datetime);
-            let timeToDisplay = getHourMin(today.hours[time].datetime);
             let hourDiv = document.createElement("div");
             hourDiv.classList.add("hourly-condition");
+
+
             let timeDiv = document.createElement("div");
             timeDiv.classList.add("time-div");
-            console.log(timeToDisplay);
-            timeDiv.textContent = timeToDisplay;
+            timeDiv.textContent = getHourMin(today.hours[time].datetime);
+
             let conditionImage = document.createElement("img");
             conditionImage.classList.add("hourly-condition-image");
             conditionImage.src = `./images/weather-icons/${today.hours[time].icon}.svg`;
             conditionImage.alt =`icon for ${today.hours[time].conditions}`;
+
+            let temperature = document.createElement("div");
+            temperature.classList.add("hourly-temperature");
+            temperature.textContent = `${getTemperature(today.hours[time].temp)}°`
             todayByHours.append(hourDiv);
-            hourDiv.append(timeDiv, conditionImage);
+            hourDiv.append(timeDiv, conditionImage,temperature);
            time++;
            if(time === 24){
             today = weather.nextFortnight[0];
