@@ -69,34 +69,41 @@ function weatherApp(){
         sunRiseSet.textContent = `${getHourMin(currentCondition.sunrise)} / ${getHourMin(currentCondition.sunset)}`;
         document.body.style.backgroundImage = `url("./images/condition-background/${currentCondition.icon}.jpg")`
     }
-
+    
     function displayTwentyFourHour(){
         const todayByHours = document.querySelector(".today-by-hours")
         todayByHours.textContent = ""
         let today = weather.today;
         let numberOfHoursToDisplay = 24;
         let time = getCurrentHour(weather.currentConditions.datetime);
-
+        
         let description = document.querySelector(".description");
         description.textContent = today.description;
         for(let i = 0; i < numberOfHoursToDisplay; i++){
+            
+            time++;
+            if(time === 24){
+             today = weather.nextFortnight[0];
+             time = 0;
+            }
+
             let hourDiv = document.createElement("div");
             hourDiv.classList.add("hourly-condition");
-
-
+            
+            
             let timeDiv = document.createElement("div");
             timeDiv.classList.add("time-div");
             timeDiv.textContent = getHourMin(today.hours[time].datetime);
-
+            
             let conditionImage = document.createElement("img");
             conditionImage.classList.add("hourly-condition-image");
             conditionImage.src = `./images/weather-icons/${today.hours[time].icon}.svg`;
             conditionImage.alt =`icon for ${today.hours[time].conditions}`;
-
+            
             let temperature = document.createElement("div");
             temperature.classList.add("hourly-temperature");
             temperature.textContent = `${getTemperature(today.hours[time].temp)}°`
-
+            
             let precip = document.createElement("div");
             precip.classList.add("precipitation")
             let precipImage = document.createElement("img");
@@ -116,11 +123,6 @@ function weatherApp(){
             precip.append(precipImage, precipChance);
             todayByHours.append(hourDiv);
             hourDiv.append(timeDiv, conditionImage,temperature, precip);
-           time++;
-           if(time === 24){
-            today = weather.nextFortnight[0];
-            time = 0;
-           }
         }
     }
 
