@@ -199,6 +199,16 @@ main {
     overflow-X: scroll;
 }
 
+.today-by-hours::-webkit-scrollbar{
+    height: .25rem;
+}
+.today-by-hours::-webkit-scrollbar-track{
+    background: none;
+}
+.today-by-hours::-webkit-scrollbar-thumb{
+    background-color: var(--secondary-color);
+}
+
 .hourly-condition{
     display: flex;
     flex-direction: column;
