@@ -1,132 +1,3 @@
-/* :root{
-    --container-height: 150px;
-}
-
-body{
-    margin: 0;
-    padding: 0;
-    font-family: Arial, Helvetica, sans-serif;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-attachment: fixed;
-}
-
-header{
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-    background-color: #2125298f;
-    color: #F8F9FA;
-    padding: 20px 0;
-}
-
-.app-name-switch-container{
-    display: flex;
-    justify-content: space-between;
-    padding: 0 50px;
-}
-
-.app-name{
-    font-size: 2rem;
-}
-.switch-unit{
-    align-self: center;
-}
-
-.search-container{
-    align-self: center;
-    height: 2.5rem;
-    border-radius: 15px;
-    border: none;
-    background-color: #F8F9FA;
-    color: #212529;
-    display: flex;
-    align-items: center;
-}
-.search-container .search-query{
-    background-color: #F8F9FA;
-    height: 100%;
-    border: none;
-    padding: 0 10px;
-    border-radius: 15px 0 0 15px;
-    font-size: 1.2rem;
-}
-.search-container .search-query:focus{
-    outline: none;
-}
-
-.search-container i{
-    padding: 0 10px;
-    font-size: 1.2rem;
-    color: gray;
-    transition: .1s;
-}
-.search-container i:hover{
-    color: black;
-}
-
-.switch-unit{
-    cursor: pointer;
-    user-select: none;
-}
-.selected{
-    background-color: #495057;
-    padding: 5px;
-    border-radius: 20%;
-}
-
-main{
-    display: flex;
-}
-
-.current-condition{
-    display: flex;
-    flex-direction: column;
-    margin: 20px;
-
-    height: 150px;
-    width: 250px;
-    border-radius: 15px;
-    box-shadow: 5px 5px 15px hwb(0 0% 100% / 0.753);
-    color: #F8F9FA;
-    padding: 10px;
-    background-color: #000000bf;
-
-}
-
-.additional-info{
-    display: flex;
-    justify-content: space-between;
-}
-
-.additional-info .city{
-    font-size: 1.1rem;
-}
-.additional-info .condition{
-    font-size: 1rem;
-}
-
-.additional-info .weather-icon{
-    width: 80px;
-}
-.weather-condition{
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
-.weather-condition .current-temperature{
-    font-size: 2rem;
-}
-
-.add-stats{
-    font-size: 1.1rem;
-}
-
-@media screen and (max-width: 500px) {
-    
-}
-
- */
  :root {
     --weather-icon-size: 50px;
     --container-backdrop: blur(10px);
@@ -154,7 +25,7 @@ main{
     --gap-small: 5px;
     --gap-large: 10px;
 
-    --flex: 1 0 270px;
+    --flex: 1 0 250px;
 }
 
 body {
@@ -205,6 +76,7 @@ header {
 .search-container .search-query {
     background-color: var(--secondary-color);
     height: 100%;
+    width: 200px;
     border: none;
     padding: 0 var(--padding-medium);
     border-radius: var(--border-radius-large) 0 0 var(--border-radius-large);
