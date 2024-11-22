@@ -197,6 +197,9 @@ main {
     align-items: center;
     gap: var(--gap-large);
     overflow-X: scroll;
+    padding-bottom: 5px;
+    scrollbar-color: var(--secondary-color) #00000000;
+    scrollbar-width: thin;
 }
 
 .today-by-hours::-webkit-scrollbar{
