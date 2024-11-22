@@ -72,6 +72,29 @@ function weatherApp(){
         document.body.style.backgroundImage = `url("./images/condition-background/${currentCondition.icon}.jpg")`
     }
 
+    function displayTwentyFourHour(){
+        const todayByHours = document.querySelector(".today-by-hours")
+        const today = weather.today;
+        let numberOfHoursToDisplay = 24;
+        let time = getCurrentHour();
+        for(let i = 0; i < numberOfHoursToDisplay; i++){
+           let hourDiv = document.createElement("div");
+           hourDiv.classList.add("hourly-condition");
+           let conditionImage = document.createElement("img");
+           conditionImage.classList.add("hourly-condition-image");
+           conditionImage.src = `./images/weather-icons/${today.hours[time].icon}.svg`;
+           conditionImage.alt =`icon for ${today.hours[time].conditions}`;
+           todayByHours.append(hourDiv);
+           hourDiv.append(conditionImage);
+           console.log(i);
+           time++;
+           if(time === 24){
+            today = weather.nextFortnight[0];
+            time = 0;
+           }
+        }
+    }
+
     function getHourMin(timeWithHourMinSec){
         return timeWithHourMinSec.substring(0, timeWithHourMinSec.lastIndexOf(":"));
     }
@@ -103,7 +126,7 @@ function weatherApp(){
         if(location.trim === ""){
             return;
         }
-        try {
+        // try {
             const response = await fetch(`https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${location}?key=${APIKey}`, {
                 mode: 'cors'
               });
@@ -115,13 +138,14 @@ function weatherApp(){
             weather = new Weather(weatherData)
             weather.printWeather();
             displayCurrentCondition();
-        } catch(error) {
-            console.log("Error fetching weather data: ", error.message);
+            displayTwentyFourHour();
+        // } catch(error) {
+        //     console.log("Error fetching weather data: ", error.message);
 
-            const errorMessage = encodeURIComponent(error.message);
-            window.location.href = `./error.html?message=${errorMessage}`;
+        //     const errorMessage = encodeURIComponent(error.message);
+        //     window.location.href = `./error.html?message=${errorMessage}`;
 
-        }
+        // }
     }
 
     getUserLocation();

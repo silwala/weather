@@ -172,3 +172,16 @@ main {
     display: flex;
     justify-content: space-around;
 }
+
+.today-by-hours{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: var(--gap-large);
+    overflow-x: scroll;
+}
+
+.today-by-hours .hourly-condition-image{
+    height: var(--weather-icon-size);
+    width: var(--weather-icon-size);
+}
