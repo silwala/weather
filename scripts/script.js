@@ -14,6 +14,7 @@ function weatherApp(){
     const visibility = document.querySelector(".visibility-value");
     const wind = document.querySelector(".wind-value");
     const sunRiseSet = document.querySelector(".sun-value");
+    const hourlyTempArr = [];
 
     let tempUnit = "C";
     let weatherAddress = "";
@@ -40,7 +41,14 @@ function weatherApp(){
             tempUnit = "C";
         }
         console.log(getTemperature(weather.currentConditions.temp) + "°");
-        currentTempDiv.textContent = getTemperature(weather.currentConditions.temp) + "°";
+        currentTempDiv.textContent = `${getTemperature(weather.currentConditions.temp)}°`;
+        feelsLike.textContent = `feels like ${getTemperature(weather.currentConditions.feelslike)}°`;
+
+        const hourlyTemps = document.querySelectorAll(".hourly-temperature");
+        for(let i = 0; i < hourlyTemps.length; i++){
+            hourlyTemps[i].textContent = `${getTemperature(hourlyTempArr[i])}°`;
+        }
+
     }
     
     function searchClick(){
@@ -61,9 +69,9 @@ function weatherApp(){
         const currentCondition = weather.currentConditions;
         city.textContent = weather.city;
         condition.textContent = currentCondition.conditions;
-        currentTempDiv.textContent = getTemperature(currentCondition.temp) + "°";
+        currentTempDiv.textContent = `${getTemperature(currentCondition.temp)}°`;
         weatherIcon.src = `./images/weather-icons/${currentCondition.icon}.svg`;
-        feelsLike.textContent = `feels like ${getTemperature(currentCondition.feelslike)}`;
+        feelsLike.textContent = `feels like ${getTemperature(currentCondition.feelslike)}°`;
         visibility.textContent = `${currentCondition.visibility} miles`;
         wind.textContent = `${currentCondition.windspeed} mph`;
         sunRiseSet.textContent = `${getHourMin(currentCondition.sunrise)} / ${getHourMin(currentCondition.sunset)}`;
@@ -80,13 +88,14 @@ function weatherApp(){
         let description = document.querySelector(".description");
         description.textContent = today.description;
         for(let i = 0; i < numberOfHoursToDisplay; i++){
-            
+
             time++;
             if(time === 24){
              today = weather.nextFortnight[0];
              time = 0;
             }
 
+            hourlyTempArr.push(today.hours[time].temp);
             let hourDiv = document.createElement("div");
             hourDiv.classList.add("hourly-condition");
             
