@@ -1,1 +1,1 @@
-This website is live [here](silwala.github.io/weather)
+This website is live (here)[https://silwala.github.io/weather/]
