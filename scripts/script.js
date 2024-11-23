@@ -166,7 +166,7 @@ function weatherApp(){
         if(location.trim === ""){
             return;
         }
-        // try {
+        try {
             const response = await fetch(`https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${location}?key=${APIKey}`, {
                 mode: 'cors'
               });
@@ -179,13 +179,13 @@ function weatherApp(){
             weather.printWeather();
             displayCurrentCondition();
             displayTwentyFourHour();
-        // } catch(error) {
-        //     console.log("Error fetching weather data: ", error.message);
+        } catch(error) {
+            console.log("Error fetching weather data: ", error.message);
 
-        //     const errorMessage = encodeURIComponent(error.message);
-        //     window.location.href = `./error.html?message=${errorMessage}`;
+            const errorMessage = encodeURIComponent(error.message);
+            window.location.href = `./error.html?message=${errorMessage}`;
 
-        // }
+        }
     }
 
     getUserLocation();
