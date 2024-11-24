@@ -29,7 +29,8 @@
     --gap-large: 30px;
 
     --flex-small: 0 1 450px;
-    --flex-large: 0 1 970px;
+    /* 450 times 2 + 20 * 3 (padding between two containers and 2 sides of one of the containers */
+    --flex-large: 0 1 980px;
 }
 
 body {
