@@ -237,3 +237,9 @@ main {
     height: 10px;
     width: 10px;
 }
+
+@media (max-width: 1060px) {
+    .current-condition, .current-more-stats {
+      flex: var(--flex-large);
+    }
+  }
