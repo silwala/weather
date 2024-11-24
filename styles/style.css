@@ -28,8 +28,8 @@
     --gap-medium: 15px;
     --gap-large: 30px;
 
-    --flex-small: 1 1 250px;
-    --flex-large: 1 1 600px;
+    --flex-small: 0 1 450px;
+    --flex-large: 0 1 970px;
 }
 
 body {
@@ -119,6 +119,7 @@ main {
 .weather-containers{
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
     border: 1px solid black;
     width: 100%;
 }
@@ -132,7 +133,7 @@ main {
     border-radius: var(--border-radius-large);
     box-shadow: var(--box-shadow);
     color: var(--text-color);
-    padding: var(--padding-medium);
+    padding: var(--padding-large);
     background-color: var(--background-dark);
 }
 

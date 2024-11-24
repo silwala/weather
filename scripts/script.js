@@ -99,7 +99,7 @@ function weatherApp(){
             let hourDiv = document.createElement("div");
             hourDiv.classList.add("hourly-condition");
             
-            
+             
             let timeDiv = document.createElement("div");
             timeDiv.classList.add("time-div");
             timeDiv.textContent = getHourMin(today.hours[time].datetime);
