@@ -187,14 +187,13 @@ main {
     overflow: hidden;
 }
 
-.today-hr{
+.hr{
     width: 100%;
     border: 1px solid var(--highlight-color);
 }
 
 .today-by-hours{
     display: flex;
-    flex-direction: row;
     align-items: center;
     gap: var(--gap-large);
     overflow-X: scroll;
@@ -220,7 +219,7 @@ main {
     gap: var(--gap-small);
 }
 
-.today-by-hours .hourly-condition-image{
+.condition-image{
     /* border: 1px solid black; */
     height: var(--weather-icon-size-small);
     width: var(--weather-icon-size-small);
@@ -239,6 +238,19 @@ main {
 
 .fifteen-days{
     flex: var(--flex-large);
+    gap: var(--gap-large);
+    font-size: var(--font-size-medium);
+}
+
+.day{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    padding-bottom: 5px;
+}
+
+.day > *{
+    /* width: 100px; */
 }
 
 @media (max-width: 1060px) {
