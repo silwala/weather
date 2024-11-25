@@ -135,6 +135,36 @@ function weatherApp(){
         }
     }
 
+    function displayFifteenDays(){
+        const fifteenDaysDiv = document.querySelector(".fifteen-days");
+        fifteenDaysDiv.textContent = "";
+        const fifteenDays = weather.fifteenDays;
+        const daysInWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
+
+        for(let day = 0; day < fifteenDays.length; day++){
+            let dayDiv = document.createElement("div");
+            dayDiv.classList.add("day");
+
+            let dayName = document.createElement("div");
+            dayName.classList.add("day-name");
+
+            if(day === 0){
+                dayName.textContent = "Today";
+            }
+            else if(day === 1){
+                dayName.textContent = "Tomorrow"
+            }
+            else{
+                console.log(day);
+                const date = new Date(fifteenDays[day].datetime);
+                dayName.textContent = daysInWeek[date.getDay()];
+            }
+            fifteenDaysDiv.append(dayDiv)
+            dayDiv.append(dayName);
+            
+        }
+    }
+
     function getHourMin(timeWithHourMinSec){
         return timeWithHourMinSec.substring(0, timeWithHourMinSec.lastIndexOf(":"));
     }
@@ -179,6 +209,7 @@ function weatherApp(){
             weather.printWeather();
             displayCurrentCondition();
             displayTwentyFourHour();
+            displayFifteenDays();
         } catch(error) {
             console.log("Error fetching weather data: ", error.message);
 
