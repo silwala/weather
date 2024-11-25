@@ -182,27 +182,31 @@ function weatherApp(){
             else{
                 precipImage.src = "./images/weather-icons/raindrop.png"
             }
+
+            const conditionDiv = document.createElement("div");
+            conditionDiv.classList.add("day-condition")
+
             const precipChance = document.createElement("div");
             precipChance.classList.add("precip-chance");
-            precipChance.textContent = `${fifteenDays[day].precipprob}%`
+            precipChance.textContent = `${Math.round(Number(fifteenDays[day].precipprob))}%`
             precipDiv.append(precipImage, precipChance);
 
+            const conditionImageDiv = document.createElement("div");
+            conditionImageDiv.classList.add("condition-image-div")
             const conditionImage = document.createElement("img");
-            conditionImage.classList.add("hourly-condition-image", "condition-image");
+            conditionImage.classList.add("daily-condition-image", "condition-image");
             conditionImage.src = `./images/weather-icons/${fifteenDays[day].icon}.svg`;
             conditionImage.alt =`icon for ${fifteenDays[day].conditions}`;
+            conditionImageDiv.append(conditionImage)
 
             const highLow = document.createElement("div");
             highLow.classList.add("high-low");
             highLow.textContent = `${getTemperature(fifteenDays[day].tempmin)}° / ${getTemperature(fifteenDays[day].tempmax)}°`
             dailyTempArr.push([fifteenDays[day].tempmin, fifteenDays[day].tempmax])
 
-            const hr = document.createElement("hr");
-            hr.classList.add("hr");
-
-            fifteenDaysDiv.append(dayDiv)
-            dayDiv.append(dayName, precipDiv, conditionImage, highLow);
-            
+            fifteenDaysDiv.append(dayDiv);
+            dayDiv.append(dayName, conditionDiv);
+            conditionDiv.append(precipDiv, conditionImageDiv, highLow);
         }
     }
 

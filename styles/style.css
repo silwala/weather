@@ -239,22 +239,47 @@ main {
 .fifteen-days{
     flex: var(--flex-large);
     gap: var(--gap-large);
-    font-size: var(--font-size-medium);
 }
 
 .day{
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-between;
     align-items: center;
-    padding-bottom: 5px;
 }
 
-.day > *{
-    /* width: 100px; */
+.day-name{
+    flex: 1;
 }
+
+.day-condition{
+    flex: 2;
+    display: flex;
+    justify-content: space-between;
+}
+
+
+
+.day-condition > *{
+    flex: 1;
+}
+
+.condition-image-div{
+    text-align: center;
+}
+
+.day-condition > .high-low{
+    text-align: right;
+}
+
 
 @media (max-width: 1060px) {
     .current-condition, .current-more-stats {
       flex: var(--flex-large);
     }
-  }
+}
+@media (max-width: 350px)  {
+    .precipitation{
+        display: none;
+    }
+}
+
