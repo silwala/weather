@@ -142,10 +142,10 @@ function weatherApp(){
         const daysInWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
 
         for(let day = 0; day < fifteenDays.length; day++){
-            let dayDiv = document.createElement("div");
+            const dayDiv = document.createElement("div");
             dayDiv.classList.add("day");
 
-            let dayName = document.createElement("div");
+            const dayName = document.createElement("div");
             dayName.classList.add("day-name");
 
             if(day === 0){
@@ -155,12 +155,36 @@ function weatherApp(){
                 dayName.textContent = "Tomorrow"
             }
             else{
-                console.log(day);
-                const date = new Date(fifteenDays[day].datetime);
+                const dateArr = fifteenDays[day].datetime.split("-");
+                const year = Number(dateArr[0]);
+                const month = Number(dateArr[1]) - 1;
+                const dayNum = Number(dateArr[2]);
+
+                const date = new Date(year, month, dayNum);
                 dayName.textContent = daysInWeek[date.getDay()];
             }
+            const precipDiv = document.createElement("div");
+            precipDiv.classList.add("precipitation")
+            let precipImage = document.createElement("img");
+            precipImage.classList.add("precip-image");
+            if(fifteenDays[day].preciptype === null){
+                precipImage.src = "./images/weather-icons/raindrop.png"
+            }
+            else if(fifteenDays[day].preciptype.length === 1 && fifteenDays[day].preciptype[0] === "snow"){
+                precipImage.src = `./images/weather-icons/snowflake.png`
+            }
+            else{
+                precipImage.src = "./images/weather-icons/raindrop.png"
+            }
+            let precipChance = document.createElement("div");
+            precipChance.classList.add("precip-chance");
+            precipChance.textContent = `${fifteenDays[day].precipprob}%`
+            precipDiv.append(precipImage, precipChance);
+
+
+            
             fifteenDaysDiv.append(dayDiv)
-            dayDiv.append(dayName);
+            dayDiv.append(dayName, precipDiv);
             
         }
     }
