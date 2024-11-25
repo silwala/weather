@@ -81,7 +81,7 @@ function weatherApp(){
     function displayTwentyFourHour(){
         const todayByHours = document.querySelector(".today-by-hours")
         todayByHours.textContent = ""
-        let today = weather.today;
+        let today = weather.fifteenDays[0];
         let numberOfHoursToDisplay = 24;
         let time = getCurrentHour(weather.currentConditions.datetime);
         
@@ -91,7 +91,7 @@ function weatherApp(){
 
             time++;
             if(time === 24){
-             today = weather.nextFortnight[0];
+             today = weather.fifteenDays[1];
              time = 0;
             }
 

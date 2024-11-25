@@ -1,22 +1,19 @@
 export class Weather {
     #data;
     #currentConditions;
-    #today;
-    #nextFortnight;
+    #fifteenDays;
     
     constructor(data){
         this.#data = data;
         this.#currentConditions = this.#data.currentConditions;
-        this.#today = this.#data.days[0];
-        this.#nextFortnight = this.#data.days.slice(1);
+        this.#fifteenDays = this.#data.days;
     }
     
     printWeather(){
         console.log("weahter: ")
         console.log(this.#data);
         console.log(this.#currentConditions)
-        console.log(this.#today);
-        console.log(this.#nextFortnight);
+        console.log(this.#fifteenDays);
     }
 
     get currentConditions(){
@@ -27,12 +24,8 @@ export class Weather {
         return this.#data.resolvedAddress.split(", ")[0];
     }
 
-    get today(){
-        return this.#today;
-    }
-
-    get nextFortnight(){
-        return this.#nextFortnight;
+    get fifteenDays(){
+        return this.#fifteenDays;
     }
 
     tempInFahren(temp){

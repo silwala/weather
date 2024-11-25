@@ -121,7 +121,6 @@ main {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    border: 1px solid black;
     width: 100%;
 }
 
@@ -236,6 +235,10 @@ main {
 .today-by-hours .precip-image{
     height: 10px;
     width: 10px;
+}
+
+.fifteen-days{
+    flex: var(--flex-large);
 }
 
 @media (max-width: 1060px) {
