@@ -45,10 +45,14 @@ body {
 header {
     display: flex;
     flex-direction: column;
+    position: fixed;
+    width: 100%;
+    z-index: 1;
     gap: var(--gap-small);
     background-color: var(--background-dark);
     color: var(--text-color);
     padding: var(--padding-large) 0;
+    top: 0;
 }
 
 .app-name-switch-container {
@@ -111,6 +115,7 @@ header {
 
 main {
     display: flex;
+    margin-top: 120px;
 }
 
 .container-with-backdrop{
