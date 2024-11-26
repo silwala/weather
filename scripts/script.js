@@ -81,7 +81,26 @@ function weatherApp(){
         visibility.textContent = `${currentCondition.visibility} miles`;
         wind.textContent = `${currentCondition.windspeed} mph`;
         sunRiseSet.textContent = `${getHourMin(currentCondition.sunrise)} / ${getHourMin(currentCondition.sunset)}`;
-        document.body.style.backgroundImage = `url("./images/condition-background/${currentCondition.icon}.jpg")`
+        
+    const backgroundImagePath = `./images/condition-background/${currentCondition.icon}.jpg`;
+    const fallbackImages = {
+        rain: "./images/condition-background/rain.jpg",
+        default: "./images/condition-background/cloudy.jpg"
+    };
+
+    const img = new Image();
+    img.onload = () => {
+        document.body.style.backgroundImage = `url("${backgroundImagePath}")`;
+    };
+    img.onerror = () => {
+        if (currentCondition.icon.includes("rain")) {
+            document.body.style.backgroundImage = `url("${fallbackImages.rain}")`;
+        } else {
+            document.body.style.backgroundImage = `url("${fallbackImages.default}")`;
+        }
+    };
+
+    img.src = backgroundImagePath;
     }
     
     function displayTwentyFourHour(){
